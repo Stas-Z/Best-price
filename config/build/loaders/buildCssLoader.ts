@@ -14,6 +14,7 @@ export const buildCssLoader = (isDev: boolean) => ({
                     localIdentName: isDev
                         ? '[path][name]__[local]--[hash:base64:5]'
                         : '[hash:base64:8]',
+                    namedExport: false,
                 },
             },
         },
