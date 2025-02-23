@@ -9,12 +9,12 @@ export type TextVariant =
     | 'primary'
     | 'error'
     | 'grey'
-    | 'grey-light'
+    | 'greyLight'
     | 'white'
 
 export type TextAlign = 'right' | 'left' | 'center'
 
-export type TextSize = 'xs' | 's' | 'm' | 'l'
+export type TextSize = 'xxs' | 'xs' | 's' | 'm' | 'l'
 
 interface TextProps {
     className?: string
@@ -27,19 +27,21 @@ interface TextProps {
     ellipsis?: boolean
 }
 
-type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4'
+type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
 
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
+    xxs: 'h5',
     xs: 'h4',
     s: 'h3',
     m: 'h2',
     l: 'h1',
 }
 const mapSizeToClass: Record<TextSize, string> = {
-    xs: 'size_xs',
-    s: 'size_s',
-    m: 'size_m',
-    l: 'size_l',
+    xxs: 'sizeXxs',
+    xs: 'sizeXs',
+    s: 'sizeS',
+    m: 'sizeM',
+    l: 'sizeL',
 }
 
 export const Text = memo((props: TextProps) => {
@@ -87,3 +89,5 @@ export const Text = memo((props: TextProps) => {
         </div>
     )
 })
+
+Text.displayName = 'Text'

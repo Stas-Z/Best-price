@@ -9,14 +9,18 @@ import { BreadcrumbItem } from '../../model/types/breadcrumbsSchema'
 interface BreadcrumbsListItemProps {
     className?: string
     breadcrumb: BreadcrumbItem
+    isLast: boolean
 }
 
 export const BreadcrumbsListItem = memo((props: BreadcrumbsListItemProps) => {
-    const { className, breadcrumb } = props
+    const { className, breadcrumb, isLast } = props
 
     return (
-        <div className={classNames(cls.breadcrumbsListItem, {}, [className])}>
-            <Text text={breadcrumb.name} size="xs" variant="grey-light" />
-        </div>
+        <li className={classNames(cls.breadcrumbsListItem, {}, [className])}>
+            <Text text={breadcrumb.name} size="xxs" variant="greyLight" />
+            {!isLast && <span className={cls.divider}> — </span>}
+        </li>
     )
 })
+
+BreadcrumbsListItem.displayName = 'BreadcrumbsListItem'

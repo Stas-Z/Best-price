@@ -38,7 +38,7 @@
     }
 }
 
-.grey-light {
+.greyLight {
     .title {
         color: var(--grey-light);
     }
@@ -70,7 +70,17 @@
     text-align: center;
 }
 
-.size_xs {
+.sizeXxs {
+    .title {
+        font: var(--font-xs);
+    }
+
+    .text {
+        font: var(--font-xxs);
+    }
+}
+
+.sizeXs {
     .title {
         font: var(--font-s);
     }
@@ -80,7 +90,7 @@
     }
 }
 
-.size_s {
+.sizeS {
     .title {
         font: var(--font-m);
         font-weight: 600;
@@ -91,7 +101,7 @@
     }
 }
 
-.size_m {
+.sizeM {
     .title {
         font: var(--font-l);
         font-weight: 600;
@@ -102,7 +112,7 @@
     }
 }
 
-.size_l {
+.sizeL {
     .title {
         font: var(--font-xl);
         font-weight: 600;

@@ -1,26 +1,11 @@
 .breadcrumbsListItem {
     cursor: pointer;
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
 
-    p {
-        &:hover {
-            color: var(--text);
-        }
-
-        &::after {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 50%;
-            margin-top: -2px;
-            right: -17px;
-            border-color: var(--grey);
-            border-style: solid solid none none;
-            border-width: 1px;
-            width: 4px;
-            height: 4px;
-            transform: rotate(45deg);
-            pointer-events: none;
-        }
-    }
+.divider {
+    color: var(--grey-light);
 }

@@ -1,4 +1,3 @@
-import pluginJs from '@eslint/js'
 import pathCheker from 'eslint-plugin-fsd-pathcheker'
 import pluginImport from 'eslint-plugin-import'
 import pluginReact from 'eslint-plugin-react'
@@ -13,12 +12,11 @@ export default [
         files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
         settings: {
             react: {
-                version: '19.0.8',
+                version: '19.0.0',
             },
         },
     },
     { languageOptions: { globals: globals.browser } },
-    pluginJs.configs.recommended,
     ...tseslint.configs.recommended,
     pluginReact.configs.flat.recommended,
     { ignores: ['**/.*'] },
@@ -29,6 +27,7 @@ export default [
             import: pluginImport,
             'fsd-pathcheker': pathCheker,
         },
+
         rules: {
             'fsd-pathcheker/path-checker': ['error', { alias: '@' }],
             'fsd-pathcheker/public-api-imports': ['error', { alias: '@' }],
@@ -36,7 +35,7 @@ export default [
                 'error',
                 {
                     alias: '@',
-                    ignoreImportPatterns: ['**/StoreProvider', '**/indexedDB'],
+                    ignoreImportPatterns: ['**/StoreProvider'],
                 },
             ],
             'react/require-default-props': 'off',
