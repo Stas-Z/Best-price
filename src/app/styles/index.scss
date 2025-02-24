@@ -5,6 +5,6 @@
 .app {
     font: var(--font-m);
     background-color: var(--background);
-    height: 100vh;
+    min-height: 100vh;
     color: var(--black);
 }

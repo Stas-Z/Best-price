@@ -1,0 +1,13 @@
+.imagePlaceholder {
+    height: 90px;
+    width: 120px;
+    background-color: var(--background);
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.icon {
+    margin: auto;
+}

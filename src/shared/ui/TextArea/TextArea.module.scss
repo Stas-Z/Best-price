@@ -1,40 +1,33 @@
-.inputBlock {
+.textBlock {
     display: flex;
-    align-items: center;
     border-radius: 8px;
-    padding-left: 18px;
+    padding: 16px;
     width: 100%;
     max-width: 480px;
     background: var(--background);
-    height: 56px;
+    height: 100%;
     font: var(--font-m);
     flex-direction: row-reverse;
 }
 
-.focused {
-    border: 1px solid var(--primary);
-}
-
-.input {
-    border: none;
-    outline-color: transparent;
+.textArea {
     width: 100%;
-    color: var(--text);
+    resize: none;
+    outline: none;
+    border: none;
     background: none;
-    height: 56px;
 
     &:focus {
         outline: none;
     }
 }
 
-.readonly {
-    opacity: 0.7;
+.focused {
+    border: 1px solid var(--primary);
 }
 
 .placeholder {
     display: flex;
-    width: 100%;
 }
 
 .required {
@@ -45,6 +38,6 @@
     }
 }
 
-.input:focus + .placeholder {
+.textArea:focus + .placeholder {
     display: none;
 }

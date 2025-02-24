@@ -1,20 +1,26 @@
 .button {
     cursor: pointer;
-    padding: 14px 24px;
     display: flex;
     align-items: center;
-    font: var(--font-m);
     border-radius: 8px;
     white-space: nowrap;
-    font-weight: 600;
     position: relative;
+    outline: none;
+    border: none;
 }
 
 .filled {
-    border: none;
-    outline: none;
     color: var(--white);
     background: var(--black);
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.primary {
+    color: var(--white);
+    background: var(--primary);
 
     &:hover {
         opacity: 0.8;
@@ -58,4 +64,33 @@
         top: 4px;
         right: 5px;
     }
+}
+
+.m {
+    padding: 14px 24px;
+    font: var(--font-m);
+    font-weight: 600;
+}
+
+.l {
+    padding: 17px 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.addonRight {
+    display: flex;
+}
+
+.maxWidth {
+    width: 100%;
+}
+
+.select {
+    background: var(--background);
+    height: 56px;
+    font: var(--font-m);
+    color: var(--grey);
+    padding: 18px 16px;
+    justify-content: space-between;
 }

@@ -9,7 +9,9 @@ import { Mods, classNames } from '@/shared/lib/classNames/classNames'
 
 import cls from './Button.module.scss'
 
-export type ButtonVariant = 'outline' | 'filled'
+export type ButtonVariant = 'outline' | 'filled' | 'primary' | 'select'
+
+export type ButtonSize = 'm' | 'l'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
@@ -17,6 +19,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     disabled?: boolean
     children?: ReactNode
     checked?: boolean
+    size?: ButtonSize
+    addonRight?: ReactNode
+    maxWidth?: boolean
 }
 
 export const Button = forwardRef(
@@ -27,13 +32,17 @@ export const Button = forwardRef(
             variant = 'outline',
             disabled,
             checked,
+            size = 'm',
+            addonRight,
+            maxWidth,
             ...otherProps
         } = props
 
         const mods: Mods = {
             [cls.disabled]: disabled,
+            [cls.maxWidth]: maxWidth,
         }
-        const addClass = [className, cls[variant], cls.normal]
+        const addClass = [className, cls[variant], cls[size]]
 
         return (
             <button
@@ -45,6 +54,9 @@ export const Button = forwardRef(
             >
                 {children}
                 {checked && <div className={cls.checkCircle}></div>}
+                {addonRight && (
+                    <div className={cls.addonRight}>{addonRight}</div>
+                )}
             </button>
         )
     },

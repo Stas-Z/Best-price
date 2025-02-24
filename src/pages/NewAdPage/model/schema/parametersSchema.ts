@@ -8,7 +8,10 @@ export const parametersSchema = z.object({
             /^(?!\d+$)/,
             'Название не должно содержать только цифры или артикулы',
         ),
-    type: z.enum(['for_self', 'for_sale'], {
+    condition: z.enum(['new', 'old'], {
+        errorMap: () => ({ message: 'Выберите один из вариантов' }),
+    }),
+    sale: z.enum(['for_self', 'for_sale'], {
         errorMap: () => ({ message: 'Выберите один из вариантов' }),
     }),
 })

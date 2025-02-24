@@ -1,38 +1,38 @@
-import {
-    InputHTMLAttributes,
+import React, {
     memo,
     Ref,
+    TextareaHTMLAttributes,
     useCallback,
     useRef,
     useState,
 } from 'react'
 
-import { Mods, classNames } from '@/shared/lib/classNames/classNames'
+import { classNames, Mods } from '@/shared/lib/classNames/classNames'
 import { mergeRefs } from '@/shared/lib/mergeRefs/mergeRefs'
 
-import cls from './Input.module.scss'
-import { Text } from '../Text'
+import cls from './TextArea.module.scss'
+import { Text } from '../Text/Text'
 
-type HTMLInputProps = Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'readOnly' | 'placeholder' | 'required'
+type HTMLTextarea = Omit<
+    TextareaHTMLAttributes<HTMLTextAreaElement>,
+    'value' | 'placeholder' | 'required'
 >
 
-interface InputProps extends HTMLInputProps {
+interface TextareaProps extends HTMLTextarea {
     className?: string
+
+    rows?: number
     value?: string | number
-    readonly?: boolean
     placeholder?: string
     required?: boolean
     discription?: string
 }
 
-export const Input = memo((props: InputProps) => {
+export const Textarea = memo((props: TextareaProps) => {
     const {
         className,
         value,
-        type = 'text',
-        readonly,
+        rows = 8,
         placeholder,
         required,
         discription,
@@ -49,34 +49,33 @@ export const Input = memo((props: InputProps) => {
         setIsFocused(true)
     }
 
-    const inputRef = useRef<HTMLInputElement | null>(null)
+    const textAreaRef = useRef<HTMLTextAreaElement | null>(null)
 
     const { ref: externalRef, ...restProps } = otherProps as {
-        ref?: Ref<HTMLInputElement>
+        ref?: Ref<HTMLTextAreaElement>
     } & Record<string, unknown>
 
     const onClickPlaceholder = useCallback(() => {
-        if (inputRef.current) {
-            inputRef.current.focus()
+        if (textAreaRef.current) {
+            textAreaRef.current.focus()
         }
     }, [])
 
     const mods: Mods = {
-        [cls.readonly]: readonly,
         [cls.focused]: isFocused,
         [cls.placeholder]: Boolean(placeholder),
         [cls.required]: required,
     }
 
     return (
-        <div className={classNames(cls.inputBlock, mods, [className])}>
-            <input
-                ref={mergeRefs(inputRef, externalRef)}
-                type={type}
-                className={cls.input}
-                readOnly={readonly}
+        <div className={classNames(cls.textBlock, mods, [className])}>
+            <textarea
+                ref={mergeRefs(textAreaRef, externalRef)}
+                value={value}
+                rows={rows}
                 onBlur={onBlur}
                 onFocus={onFocus}
+                className={cls.textArea}
                 {...restProps}
             />
             {placeholder && !value && (
@@ -91,4 +90,5 @@ export const Input = memo((props: InputProps) => {
         </div>
     )
 })
-Input.displayName = 'Input'
+
+Textarea.displayName = 'Textarea'

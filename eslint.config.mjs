@@ -35,7 +35,7 @@ export default [
                 'error',
                 {
                     alias: '@',
-                    ignoreImportPatterns: ['**/StoreProvider'],
+                    ignoreImportPatterns: ['**/errorNames'],
                 },
             ],
             'react/require-default-props': 'off',

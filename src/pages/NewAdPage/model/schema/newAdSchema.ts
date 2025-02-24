@@ -1,6 +1,5 @@
-import { parametersSchema } from '@/features/Parameters'
+import { detailsSchema } from './detailsSchema'
+import { parametersSchema } from './parametersSchema'
+import { placeSchema } from './placeSchema'
 
-export const adSchema = parametersSchema
-//   .merge(detailsSchema)
-//   .merge(dealLocationSchema)
-//   .merge(contactsSchema);
+export const adSchema = parametersSchema.merge(detailsSchema).merge(placeSchema)

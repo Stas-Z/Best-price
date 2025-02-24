@@ -25,6 +25,7 @@ interface TextProps {
     size?: TextSize
     bold?: boolean
     ellipsis?: boolean
+    onClick?: () => void
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
@@ -56,6 +57,7 @@ export const Text = memo((props: TextProps) => {
         size = 'm',
         bold,
         ellipsis,
+        onClick,
     } = props
 
     const HeaderTag = mapSizeToHeaderTag[size] || 'h5'
@@ -70,6 +72,7 @@ export const Text = memo((props: TextProps) => {
 
     return (
         <div
+            onClick={onClick}
             className={classNames(
                 cls.text,
                 { [cls.bold]: bold },

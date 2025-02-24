@@ -1,0 +1,26 @@
+.close {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    transition: all 0.1s ease-out;
+    transform: scale(0, 0);
+}
+
+.imageItem {
+    position: relative;
+    max-height: 90px;
+    max-width: 120px;
+
+    &:hover {
+        .close {
+            transform: scale(1, 1);
+        }
+    }
+}
+
+.img {
+    object-fit: cover;
+    border-radius: 8px;
+    height: 90px;
+    width: 120px;
+}

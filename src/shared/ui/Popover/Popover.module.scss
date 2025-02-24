@@ -8,20 +8,17 @@
     font: var(--font-m);
     box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
     z-index: 1000;
-
-    /* Позиционируем popover относительно родительского элемента */
-    top: 100%;
+    bottom: 100%;
     left: 0;
-    transform: translateY(8px);
+    transform: translateY(-8px);
 
-    /* Треугольник для указания на поле ошибки */
     &::after {
         content: '';
         position: absolute;
-        top: -17px;
+        bottom: -16px;
         left: 10px;
         border-width: 8px;
         border-style: solid;
-        border-color: transparent transparent var(--red);
+        border-color: var(--red) transparent transparent;
     }
 }
