@@ -58,6 +58,7 @@ export const Parameters = memo((props: ParametersProps) => {
                 max
                 className={classNames(cls.parameters, {}, [className])}
                 onClick={handleClearErrors}
+                gap="24"
             >
                 <Text title="Параметры" size="l" className={cls.title} />
 
@@ -117,7 +118,7 @@ export const Parameters = memo((props: ParametersProps) => {
                                     </Button>
                                 </HStack>
                             }
-                            description="Какую вещь можно считать новой"
+                            linkDescription="Какую вещь можно считать новой"
                             link
                             src={'/'}
                             errors={errors}

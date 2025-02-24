@@ -51,6 +51,7 @@ export const DetailsAd = memo((props: DetailsAdProps) => {
             max
             className={classNames(cls.detailsAd, {}, [className])}
             onClick={handleClearErrors}
+            gap="24"
         >
             <Text title="Подробности" size="l" className={cls.title} />
             <AdLayout

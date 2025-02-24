@@ -9,7 +9,6 @@ import { BlockAdRight } from '@/shared/ui/BlockAdRight'
 import { VStack } from '@/shared/ui/Stack'
 import { Text } from '@/shared/ui/Text'
 
-import cls from './TransactionPlace.module.scss'
 import { PlaceTypes } from '../../model/schema/placeSchema'
 
 interface TransactionPlaceProps {
@@ -20,11 +19,8 @@ export const TransactionPlace = memo((props: TransactionPlaceProps) => {
     const { className } = props
 
     const {
-        register,
         formState: { errors },
         clearErrors,
-        watch,
-        setValue,
     } = useFormContext<PlaceTypes>()
 
     const handleClearErrors = useCallback(() => {
@@ -35,10 +31,11 @@ export const TransactionPlace = memo((props: TransactionPlaceProps) => {
     return (
         <VStack
             max
-            className={classNames(cls.transactionPlace, {}, [className])}
+            className={classNames('', {}, [className])}
             onClick={handleClearErrors}
+            gap="24"
         >
-            <Text title="Место сделки" size="l" className={cls.title} />
+            <Text title="Место сделки" size="l" />
             <AdLayout
                 left="Город"
                 right={

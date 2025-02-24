@@ -7,6 +7,7 @@ import { ErrorName } from '@/app/types/errorNames'
 
 import { AppLink } from '../AppLink'
 import { Popover } from '../Popover'
+import { VStack } from '../Stack'
 import { Text } from '../Text'
 
 interface BlockAdRightBaseProps {
@@ -14,6 +15,7 @@ interface BlockAdRightBaseProps {
     errors?: FieldErrors<FieldValues>
     errorName?: ErrorName
     description?: string
+    linkDescription?: string
 }
 
 interface NonLinkProps extends BlockAdRightBaseProps {
@@ -28,7 +30,14 @@ interface linkProps extends BlockAdRightBaseProps {
 type BlockAdRightProps = NonLinkProps | linkProps
 
 export const BlockAdRight = memo((props: BlockAdRightProps) => {
-    const { errorName, interaction, errors, description, link } = props
+    const {
+        errorName,
+        interaction,
+        errors,
+        description,
+        link,
+        linkDescription,
+    } = props
 
     return (
         <>
@@ -40,15 +49,16 @@ export const BlockAdRight = memo((props: BlockAdRightProps) => {
                     render={({ message }) => <Popover error={message} />}
                 />
             )}
-
-            {description && !link && (
-                <Text text={description} variant="grey" size="s" />
-            )}
-            {link && (
-                <AppLink to={props.src} underline>
+            <VStack gap="8">
+                {description && (
                     <Text text={description} variant="grey" size="s" />
-                </AppLink>
-            )}
+                )}
+                {link && (
+                    <AppLink to={props.src} underline>
+                        <Text text={linkDescription} variant="grey" size="s" />
+                    </AppLink>
+                )}
+            </VStack>
         </>
     )
 })

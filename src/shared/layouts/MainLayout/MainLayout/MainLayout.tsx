@@ -22,7 +22,7 @@ export const MainLayout = memo((props: MainLayoutProps) => {
                 <div className={cls.pageHeader}>{pageHeader}</div>
                 <div className={cls.page}>{page}</div>
             </div>
-            {footer && <div className={cls.footer}>{footer}</div>}
+            <div className={cls.footer}>{footer}</div>
         </div>
     )
 })
