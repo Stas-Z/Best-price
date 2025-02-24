@@ -123,6 +123,17 @@
     }
 }
 
+.sizeXl {
+    .title {
+        font: var(--font-xxl);
+        font-weight: 600;
+    }
+
+    .text {
+        font: var(--font-xl);
+    }
+}
+
 .bold {
     .title,
     .text {

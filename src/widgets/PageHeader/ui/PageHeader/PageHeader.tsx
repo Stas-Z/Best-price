@@ -16,7 +16,7 @@ interface PageHeaderProps {
 export const PageHeader = memo((props: PageHeaderProps) => {
     const { className } = props
 
-    const pageTitle = 'Добавить обьявление' // получаем с помощью селектора
+    const pageTitle = 'Добавить объявление' // получаем с помощью селектора
 
     const onButtonClick = useCallback(() => {
         // Вернутся на предыдущую страницу
@@ -33,7 +33,7 @@ export const PageHeader = memo((props: PageHeaderProps) => {
                     width={40}
                     height={40}
                 />
-                <Text className={cls.pageTitle} title={pageTitle} size="l" />
+                <Text className={cls.pageTitle} title={pageTitle} size="xl" />
             </HStack>
         </div>
     )

@@ -1,0 +1,49 @@
+.inputBlock {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding-left: 18px;
+    width: 100%;
+    max-width: 480px;
+    background: var(--background);
+    height: 56px;
+    font: var(--font-m);
+    flex-direction: row-reverse;
+}
+
+.focused {
+    border: 1px solid var(--primary);
+}
+
+.input {
+    border: none;
+    outline-color: transparent;
+    width: 100%;
+    color: var(--text);
+    background: none;
+    height: 56px;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.readonly {
+    opacity: 0.7;
+}
+
+.placeholder {
+    display: flex;
+}
+
+.required {
+    .placeholder::after {
+        content: '*';
+        color: var(--red);
+        margin-left: 5px;
+    }
+}
+
+.input:focus + .placeholder {
+    display: none;
+}

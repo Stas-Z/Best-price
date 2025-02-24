@@ -1,0 +1,61 @@
+.button {
+    cursor: pointer;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    font: var(--font-m);
+    border-radius: 8px;
+    white-space: nowrap;
+    font-weight: 600;
+    position: relative;
+}
+
+.filled {
+    border: none;
+    outline: none;
+    color: var(--white);
+    background: var(--black);
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.outline {
+    background: none;
+    border: 1px solid var(--grey-light);
+    color: var(--black);
+
+    &:hover {
+        border: 1px solid var(--black);
+    }
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+.checkCircle {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-left: 2px solid white;
+        border-bottom: 2px solid white;
+        transform: rotate(-45deg);
+        position: absolute;
+        top: 4px;
+        right: 5px;
+    }
+}

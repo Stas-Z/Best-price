@@ -1,0 +1,9 @@
+.underline {
+    text-decoration: underline;
+}
+
+.appLink {
+    &:visited {
+        color: inherit;
+    }
+}

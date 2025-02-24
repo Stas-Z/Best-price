@@ -32,6 +32,12 @@
     --font-line-xl: 1.4;
     --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
+    // XXl
+    --font-size-xxl: 32px;
+    --font-line-xxl: 1.4;
+    --font-xxl: var(--font-size-xxl) / var(--font-line-xxl)
+        var(--font-family-main);
+
     // цвета
     --white: #fff;
     --primary: #8bb900;

@@ -1,11 +1,17 @@
 .header {
     height: 89px;
     background: var(--white);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding-top: 89px;
 }
 
 .page {

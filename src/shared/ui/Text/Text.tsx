@@ -14,7 +14,7 @@ export type TextVariant =
 
 export type TextAlign = 'right' | 'left' | 'center'
 
-export type TextSize = 'xxs' | 'xs' | 's' | 'm' | 'l'
+export type TextSize = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl'
 
 interface TextProps {
     className?: string
@@ -29,19 +29,21 @@ interface TextProps {
 
 type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
 
-const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
-    xxs: 'h5',
-    xs: 'h4',
-    s: 'h3',
-    m: 'h2',
-    l: 'h1',
+const mapSizeToHeaderTag: Partial<Record<TextSize, HeaderTagType>> = {
+    xs: 'h5',
+    s: 'h4',
+    m: 'h3',
+    l: 'h2',
+    xl: 'h1',
 }
+
 const mapSizeToClass: Record<TextSize, string> = {
     xxs: 'sizeXxs',
     xs: 'sizeXs',
     s: 'sizeS',
     m: 'sizeM',
     l: 'sizeL',
+    xl: 'sizeXl',
 }
 
 export const Text = memo((props: TextProps) => {
@@ -56,7 +58,7 @@ export const Text = memo((props: TextProps) => {
         ellipsis,
     } = props
 
-    const HeaderTag = mapSizeToHeaderTag[size]
+    const HeaderTag = mapSizeToHeaderTag[size] || 'h5'
     const sizeClass = mapSizeToClass[size]
 
     const additionalClasses = [
