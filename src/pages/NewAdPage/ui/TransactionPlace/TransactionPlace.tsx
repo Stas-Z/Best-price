@@ -2,9 +2,10 @@ import { memo, useCallback } from 'react'
 
 import { useFormContext } from 'react-hook-form'
 
-import { CitySelect } from '@/entities/City'
+import { CitySelect, CitySelectMobile } from '@/features/CitySelect'
 import { AdLayout } from '@/shared/layouts/AdLayout'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice'
 import { BlockAdRight } from '@/shared/ui/BlockAdRight'
 import { VStack } from '@/shared/ui/Stack'
 import { Text } from '@/shared/ui/Text'
@@ -17,6 +18,8 @@ interface TransactionPlaceProps {
 
 export const TransactionPlace = memo((props: TransactionPlaceProps) => {
     const { className } = props
+
+    const isMobile = useDevice()
 
     const {
         formState: { errors },
@@ -36,16 +39,19 @@ export const TransactionPlace = memo((props: TransactionPlaceProps) => {
             gap="24"
         >
             <Text title="Место сделки" size="l" />
-            <AdLayout
-                left="Город"
-                right={
-                    <BlockAdRight
-                        interaction={<CitySelect />}
-                        errors={errors}
-                        errorName="city"
-                    />
-                }
-            />
+            {isMobile && <CitySelectMobile />}
+            {!isMobile && (
+                <AdLayout
+                    left="Город"
+                    right={
+                        <BlockAdRight
+                            interaction={<CitySelect />}
+                            errors={errors}
+                            errorName="city"
+                        />
+                    }
+                />
+            )}
         </VStack>
     )
 })

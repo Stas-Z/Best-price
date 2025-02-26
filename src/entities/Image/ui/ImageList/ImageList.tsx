@@ -1,6 +1,6 @@
 import { memo } from 'react'
 
-import Placeholder from '@/shared/assets/photoCamera.svg'
+import Placeholder from '@/shared/assets/icons/photoCamera.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Icon } from '@/shared/ui/Icon'
 import { HStack } from '@/shared/ui/Stack'

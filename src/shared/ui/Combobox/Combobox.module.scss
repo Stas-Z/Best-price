@@ -1,0 +1,76 @@
+.combobox {
+    width: 100%;
+}
+
+.inputBlock {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding-left: 18px;
+    width: 100%;
+    max-width: 708px;
+    background: var(--background);
+    height: 56px;
+    font: var(--font-m);
+    flex-direction: row-reverse;
+}
+
+.input {
+    border: none;
+    outline-color: transparent;
+    width: 100%;
+    color: var(--grey);
+    background: none;
+    height: 56px;
+    flex-shrink: 2;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.focused {
+    border: 1px solid var(--primary);
+}
+
+.options {
+    max-width: 708px;
+    width: 100%;
+    background-color: var(--background);
+    border: 2px solid var(--background);
+    height: 320px;
+    overflow-y: scroll;
+}
+
+.item {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: var(--grey);
+    height: 45px;
+}
+
+.selected {
+    background: var(--white);
+}
+
+.active {
+    background: var(--white);
+}
+
+.placeholder {
+    font: var(--font-m);
+    color: var(--grey);
+    flex-basis: 100%;
+}
+
+.required {
+    .placeholder::after {
+        content: '*';
+        color: var(--red);
+        margin-left: 5px;
+    }
+}
+
+.input:focus + .placeholder {
+    display: none;
+}

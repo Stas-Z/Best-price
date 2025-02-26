@@ -64,7 +64,6 @@ export const Input = memo((props: InputProps) => {
     const mods: Mods = {
         [cls.readonly]: readonly,
         [cls.focused]: isFocused,
-        [cls.placeholder]: Boolean(placeholder),
         [cls.required]: required,
     }
 

@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react'
 
-import Close from '@/shared/assets/close.svg'
+import Close from '@/shared/assets/icons/close.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppImage } from '@/shared/ui/AppImage'
 import { Icon } from '@/shared/ui/Icon'

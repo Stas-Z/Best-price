@@ -1,9 +1,10 @@
-import { memo, useCallback } from 'react'
+import { memo } from 'react'
 
 import { BreadcrumbsList } from '@/entities/Breadcrumbs'
-import Arrow from '@/shared/assets/backArrow.svg'
+import { BackButton } from '@/features/BackButton'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Icon } from '@/shared/ui/Icon'
+import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice'
+import useWindowWidth from '@/shared/lib/hooks/useWindowWidth/useWindowWidth'
 import { HStack } from '@/shared/ui/Stack'
 import { Text } from '@/shared/ui/Text'
 
@@ -16,24 +17,21 @@ interface PageHeaderProps {
 export const PageHeader = memo((props: PageHeaderProps) => {
     const { className } = props
 
-    const pageTitle = 'Добавить объявление' // получаем с помощью селектора
+    const isMobile = useDevice()
+    const small = useWindowWidth({ maxWidth: 576 })
 
-    const onButtonClick = useCallback(() => {
-        // Вернутся на предыдущую страницу
-    }, [])
+    const pageTitle = 'Добавить объявление' // получаем с помощью селектора
 
     return (
         <div className={classNames(cls.pageHeader, {}, [className])}>
-            <BreadcrumbsList className={cls.breadCrumbs} />
-            <HStack gap="16">
-                <Icon
-                    Svg={Arrow}
-                    clickable
-                    onClick={onButtonClick}
-                    width={40}
-                    height={40}
+            {!isMobile && <BreadcrumbsList className={cls.breadCrumbs} />}
+            <HStack gap="16" justify={isMobile ? 'center' : 'start'}>
+                {!isMobile && <BackButton />}
+                <Text
+                    className={cls.pageTitle}
+                    title={pageTitle}
+                    size={small ? 'l' : 'xl'}
                 />
-                <Text className={cls.pageTitle} title={pageTitle} size="xl" />
             </HStack>
         </div>
     )

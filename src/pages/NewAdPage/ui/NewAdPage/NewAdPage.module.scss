@@ -8,3 +8,22 @@
     flex-direction: column;
     gap: 48px;
 }
+
+@media (width <= 576px) {
+    .newAdPage {
+        padding: 24px 24px 32px;
+    }
+
+    .pageWrapper {
+        gap: 32px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .submitButton {
+        width: 100%;
+        justify-content: center;
+    }
+}

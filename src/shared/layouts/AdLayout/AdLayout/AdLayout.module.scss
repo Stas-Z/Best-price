@@ -1,15 +1,33 @@
-.adBlock {
-    align-items: flex-start;
-}
-
 .left {
     width: 100%;
     max-width: 220px;
     min-height: 56px;
     align-content: center;
+    flex-shrink: 2;
 }
 
 .right {
     position: relative;
     max-width: 600px;
+}
+
+@media (width <= 1000px) {
+    .left {
+        max-width: 203px;
+    }
+}
+
+@media (width <= 576px) {
+    .adBlock {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .left {
+        min-height: auto;
+    }
+
+    .right {
+        gap: 8px;
+    }
 }

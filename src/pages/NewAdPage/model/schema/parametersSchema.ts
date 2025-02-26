@@ -8,12 +8,6 @@ export const parametersSchema = z.object({
             /^(?!\d+$)/,
             'Название не должно содержать только цифры или артикулы',
         ),
-    condition: z.enum(['new', 'old'], {
-        errorMap: () => ({ message: 'Выберите один из вариантов' }),
-    }),
-    sale: z.enum(['for_self', 'for_sale'], {
-        errorMap: () => ({ message: 'Выберите один из вариантов' }),
-    }),
 })
 
 export type ParametersType = z.infer<typeof parametersSchema>

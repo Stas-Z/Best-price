@@ -49,16 +49,22 @@ export const BlockAdRight = memo((props: BlockAdRightProps) => {
                     render={({ message }) => <Popover error={message} />}
                 />
             )}
-            <VStack gap="8">
-                {description && (
-                    <Text text={description} variant="grey" size="s" />
-                )}
-                {link && (
-                    <AppLink to={props.src} underline>
-                        <Text text={linkDescription} variant="grey" size="s" />
-                    </AppLink>
-                )}
-            </VStack>
+            {(description || link) && (
+                <VStack gap="8">
+                    {description && (
+                        <Text text={description} variant="grey" size="s" />
+                    )}
+                    {link && (
+                        <AppLink to={props.src} underline>
+                            <Text
+                                text={linkDescription}
+                                variant="grey"
+                                size="s"
+                            />
+                        </AppLink>
+                    )}
+                </VStack>
+            )}
         </>
     )
 })

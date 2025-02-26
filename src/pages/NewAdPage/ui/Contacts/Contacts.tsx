@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react'
 
 import { useFormContext } from 'react-hook-form'
 
-import { CommunicationSelect } from '@/entities/Communication'
+import { CommunicationSelect } from '@/features/CommunicationSelect'
 import { AdLayout } from '@/shared/layouts/AdLayout'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { BlockAdRight } from '@/shared/ui/BlockAdRight'

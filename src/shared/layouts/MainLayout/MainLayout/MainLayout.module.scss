@@ -1,6 +1,9 @@
+.mainLayout {
+    padding: 0 24px;
+}
+
 .header {
-    height: 89px;
-    background: var(--white);
+    width: 100%;
     position: fixed;
     top: 0;
     right: 0;
@@ -10,8 +13,8 @@
 
 .container {
     max-width: 1200px;
-    margin: 0 auto;
     padding-top: 89px;
+    width: 100%;
 }
 
 .page {
@@ -22,4 +25,33 @@
     height: 96px;
     background: var(--white);
     margin-top: 80px;
+    width: 100%;
+}
+
+.mobile {
+    position: relative;
+}
+
+@media (width <= 1000px) {
+    .mainLayout {
+        padding-top: 24px;
+    }
+
+    .container {
+        padding-top: 32px;
+    }
+
+    .footer {
+        margin-top: 64px;
+    }
+}
+
+@media (width <= 576px) {
+    .mainLayout {
+        padding: 16px 16px 0;
+    }
+
+    .page {
+        margin-top: 24px;
+    }
 }

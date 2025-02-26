@@ -1,0 +1,11 @@
+.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    transition: all 0.1s ease-out;
+
+    &:hover {
+        transform: scale(1.2);
+        transition: all 0.1s ease-out;
+    }
+}

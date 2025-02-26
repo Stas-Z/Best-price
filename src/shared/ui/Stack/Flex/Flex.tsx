@@ -10,6 +10,7 @@ export type FlexAlign = 'start' | 'center' | 'end' | 'unset'
 export type FlexDirection = 'row' | 'column'
 export type FlexWrap = 'nowrap' | 'wrap'
 export type FlexGap = '4' | '6' | '8' | '16' | '24' | '32' | '48' | '60' | '76'
+export type FlexShrink = '0' | '1' | '2'
 
 const justifyClasses: Record<FlexJustify, string> = {
     start: cls.justifyStart,
@@ -41,6 +42,11 @@ const gapClasses: Record<FlexGap, string> = {
     60: cls.gap60,
     76: cls.gap76,
 }
+const shrinkClasses: Record<FlexShrink, string> = {
+    0: cls.shrink0,
+    1: cls.shrink1,
+    2: cls.shrink2,
+}
 
 export interface FlexProps {
     className?: string
@@ -51,6 +57,7 @@ export interface FlexProps {
     max?: boolean
     maxHeight?: boolean
     wrap?: FlexWrap
+    shrink?: FlexShrink
 }
 
 export const defaultFlexTag = 'div'
@@ -69,6 +76,7 @@ export const Flex = <E extends ElementType = typeof defaultFlexTag>(
         maxHeight,
         wrap = 'nowrap',
         as,
+        shrink,
         ...otherProps
     } = props
 
@@ -79,6 +87,7 @@ export const Flex = <E extends ElementType = typeof defaultFlexTag>(
         directionClasses[direction],
         cls[wrap],
         gap && gapClasses[gap],
+        shrink && shrinkClasses[shrink],
     ]
 
     const mods: Mods = {

@@ -1,0 +1,24 @@
+.overlay {
+    background: var(--overlay-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    cursor: pointer;
+    animation-name: open-overlay;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    z-index: 100;
+}
+
+@keyframes open-overlay {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

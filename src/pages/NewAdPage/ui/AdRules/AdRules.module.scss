@@ -1,0 +1,23 @@
+.adRules {
+    font-size: 13px;
+    line-height: 18px;
+    color: var(--grey);
+    max-width: 620px;
+    padding-bottom: 32px;
+}
+
+.link {
+    text-decoration: underline;
+}
+
+@media (width <= 1000px) {
+    .adRules {
+        padding-bottom: 8px;
+    }
+}
+
+@media (width <= 576px) {
+    .adRules {
+        padding-bottom: 0;
+    }
+}
