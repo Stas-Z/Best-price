@@ -4,8 +4,6 @@ import Arrow from '@/shared/assets/icons/backArrow.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Icon } from '@/shared/ui/Icon'
 
-import cls from './BackButton.module.scss'
-
 interface BackButtonProps {
     className?: string
 }
@@ -19,7 +17,7 @@ export const BackButton = memo((props: BackButtonProps) => {
 
     return (
         <Icon
-            className={classNames(cls.backButton, {}, [className])}
+            className={classNames('', {}, [className])}
             Svg={Arrow}
             clickable
             onClick={onButtonClick}

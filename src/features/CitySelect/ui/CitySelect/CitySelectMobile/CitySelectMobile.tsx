@@ -7,7 +7,6 @@ import useWindowWidth from '@/shared/lib/hooks/useWindowWidth/useWindowWidth'
 import { Combobox } from '@/shared/ui/Combobox'
 import { VStack } from '@/shared/ui/Stack'
 
-import cls from './CitySelectMobile.module.scss'
 import { City } from '../../../model/consts/cityConsts'
 import { CitySelectProps } from '../CitySelect'
 
@@ -29,10 +28,7 @@ export const CitySelectMobile = memo((props: CitySelectProps) => {
         : 'Начните вводить адрес, а потом выберите из списка'
 
     return (
-        <VStack
-            max
-            className={classNames(cls.citySelectMobile, {}, [className])}
-        >
+        <VStack max className={classNames('', {}, [className])}>
             <Controller
                 name="city"
                 render={({ field }) => (
