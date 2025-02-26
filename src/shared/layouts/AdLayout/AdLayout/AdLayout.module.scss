@@ -18,11 +18,6 @@
 }
 
 @media (width <= 576px) {
-    .adBlock {
-        flex-direction: column;
-        gap: 16px;
-    }
-
     .left {
         min-height: auto;
     }

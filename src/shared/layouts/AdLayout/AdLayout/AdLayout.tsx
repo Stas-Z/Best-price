@@ -1,6 +1,6 @@
 import { memo, ReactNode } from 'react'
 
-import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice'
+import useWindowWidth from '@/shared/lib/hooks/useWindowWidth/useWindowWidth'
 import { HStack, VStack } from '@/shared/ui/Stack'
 import { Text } from '@/shared/ui/Text'
 
@@ -16,14 +16,26 @@ interface AdLayoutProps {
 export const AdLayout = memo((props: AdLayoutProps) => {
     const { left, right } = props
 
-    const isMobile = useDevice()
-
-    return (
-        <HStack gap="24" className={cls.adBlock} max align="start">
+    const small = useWindowWidth({ maxWidth: 576 })
+    const content = (
+        <>
             <Text text={left} size="m" className={cls.left} />
             <VStack max gap="16" className={cls.right}>
                 {right}
             </VStack>
+        </>
+    )
+    if (small) {
+        return (
+            <VStack gap="16" className={cls.adBlock} max align="start">
+                {content}
+            </VStack>
+        )
+    }
+
+    return (
+        <HStack gap="24" className={cls.adBlock} max align="start">
+            {content}
         </HStack>
     )
 })

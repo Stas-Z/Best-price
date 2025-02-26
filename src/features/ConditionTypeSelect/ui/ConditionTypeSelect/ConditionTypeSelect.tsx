@@ -3,6 +3,7 @@ import { memo, useEffect, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
+import useWindowWidth from '@/shared/lib/hooks/useWindowWidth/useWindowWidth'
 import { Button } from '@/shared/ui/Button'
 import { HStack } from '@/shared/ui/Stack'
 
@@ -21,6 +22,8 @@ export const ConditionTypeSelect = memo((props: SaleTypeSelectProps) => {
     const { className, isOpen } = props
     const [conditionTypeState, setConditionTypeState] = useState<string>('')
 
+    const tablet = useWindowWidth({ maxWidth: 1000 })
+
     const { register, setValue } = useFormContext<SelectConditionTypes>()
 
     const handleConditionTypeSelect = (type: ConditionTypes) => {
@@ -35,7 +38,10 @@ export const ConditionTypeSelect = memo((props: SaleTypeSelectProps) => {
     }, [isOpen])
 
     return (
-        <HStack gap="8" className={classNames('', {}, [className])}>
+        <HStack
+            gap={tablet ? '12' : '8'}
+            className={classNames('', {}, [className])}
+        >
             <Button
                 onClick={() => handleConditionTypeSelect(conditionType.NEW)}
                 checked={conditionTypeState === conditionType.NEW}

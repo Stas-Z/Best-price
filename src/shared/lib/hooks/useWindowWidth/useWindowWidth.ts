@@ -14,22 +14,17 @@ const useWindowWidth = (props: useWindowWidthProps) => {
             setWidth(window.innerWidth)
         }
 
-        // Добавляем обработчик события resize
         window.addEventListener('resize', handleResize)
 
-        // Очистка при размонтировании компонента
         return () => {
             window.removeEventListener('resize', handleResize)
         }
     }, [])
 
-    // Проверка на минимальную ширину
     const isMinWidth = minWidth !== undefined ? width >= minWidth : true
 
-    // Проверка на максимальную ширину
     const isMaxWidth = maxWidth !== undefined ? width <= maxWidth : true
 
-    // Возвращаем true, если выполняются оба условия minWidth и maxWidth
     return isMinWidth && isMaxWidth
 }
 

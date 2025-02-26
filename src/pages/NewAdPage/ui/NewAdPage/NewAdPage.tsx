@@ -5,6 +5,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
 
 import { Communication } from '@/features/CommunicationSelect'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import useWindowWidth from '@/shared/lib/hooks/useWindowWidth/useWindowWidth'
 import { Button } from '@/shared/ui/Button'
 import { HStack, VStack } from '@/shared/ui/Stack'
 
@@ -27,6 +28,8 @@ const NewAdPage = (props: NewAdPageProps) => {
     const { className } = props
 
     const [isAuthModal, setIsAuthModal] = useState(false)
+
+    const small = useWindowWidth({ maxWidth: 576 })
 
     const firstCommunicationOption = Object.keys(Communication)[0]
 
@@ -57,30 +60,41 @@ const NewAdPage = (props: NewAdPageProps) => {
         onShowModal()
     }
 
+    const buttons = (
+        <>
+            <Button
+                type="submit"
+                variant="primary"
+                size="l"
+                className={cls.submitButton}
+            >
+                Разместить обьявление
+            </Button>
+            <Button variant="outline">Сохранить и выйти</Button>
+        </>
+    )
+
     return (
         <FormProvider {...methods}>
             <form
                 onSubmit={methods.handleSubmit(onSubmit)}
                 className={classNames(cls.newAdPage, {}, [className])}
             >
-                <VStack gap="24" className={cls.pageWrapper}>
+                <VStack gap={small ? '32' : '24'}>
                     <Parameters isOpen={isAuthModal} />
                     <DetailsAd />
                     <TransactionPlace />
                     <Contacts />
                 </VStack>
                 <VStack gap="24">
-                    <HStack gap="16" className={cls.buttons} align="start">
-                        <Button
-                            type="submit"
-                            variant="primary"
-                            size="l"
-                            className={cls.submitButton}
-                        >
-                            Разместить обьявление
-                        </Button>
-                        <Button variant="outline">Сохранить и выйти</Button>
-                    </HStack>
+                    {small ? (
+                        <VStack gap="16" align="start" max>
+                            {buttons}
+                        </VStack>
+                    ) : (
+                        <HStack gap="16">{buttons}</HStack>
+                    )}
+
                     <AdRules src="/" />
                 </VStack>
 
