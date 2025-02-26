@@ -1,5 +1,4 @@
 export { City } from './model/consts/cityConsts'
 
-export { CitySelect } from './ui/CitySelect/CitySelect'
-
-export { CitySelectMobile } from './ui/CitySelectMobile/CitySelectMobile'
+export { CitySelectMobile } from './ui/CitySelect/CitySelectMobile/CitySelectMobile'
+export { CitySelectAsync as CitySelect } from './ui/CitySelect/CitySelect.async'

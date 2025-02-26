@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react'
 
 import { useFormContext } from 'react-hook-form'
 
-import { CitySelect, CitySelectMobile } from '@/features/CitySelect'
+import { CitySelect } from '@/features/CitySelect'
 import { AdLayout } from '@/shared/layouts/AdLayout'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice'
@@ -39,7 +39,7 @@ export const TransactionPlace = memo((props: TransactionPlaceProps) => {
             gap="24"
         >
             <Text title="Место сделки" size="l" />
-            {isMobile && <CitySelectMobile />}
+            {isMobile && <CitySelect />}
             {!isMobile && (
                 <AdLayout
                     left="Город"

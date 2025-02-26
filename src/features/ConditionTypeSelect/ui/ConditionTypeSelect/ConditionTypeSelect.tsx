@@ -13,12 +13,12 @@ import {
 } from '../../model/consts/conditionSaleType'
 import { SelectConditionTypes } from '../../model/schema/conditionTypeSchema'
 
-interface SaleTypeSelectProps {
+export interface ConditionTypeSelectProps {
     className?: string
     isOpen?: boolean
 }
 
-export const ConditionTypeSelect = memo((props: SaleTypeSelectProps) => {
+const ConditionTypeSelect = (props: ConditionTypeSelectProps) => {
     const { className, isOpen } = props
     const [conditionTypeState, setConditionTypeState] = useState<string>('')
 
@@ -60,5 +60,5 @@ export const ConditionTypeSelect = memo((props: SaleTypeSelectProps) => {
             </Button>
         </HStack>
     )
-})
-ConditionTypeSelect.displayName = 'ConditionTypeSelect'
+}
+export default memo(ConditionTypeSelect)

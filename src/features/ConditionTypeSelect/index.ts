@@ -1,3 +1,3 @@
 export { conditionTypeSchema } from './model/schema/conditionTypeSchema'
 
-export { ConditionTypeSelect } from './ui/ConditionTypeSelect/ConditionTypeSelect'
+export { ConditionTypeSelectAsync as ConditionTypeSelect } from './ui/ConditionTypeSelect/ConditionTypeSelect.async'

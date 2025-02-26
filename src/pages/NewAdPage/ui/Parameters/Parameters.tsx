@@ -4,7 +4,6 @@ import { useFormContext } from 'react-hook-form'
 
 import { ConditionTypeSelect } from '@/features/ConditionTypeSelect'
 import { SaleTypeSelect } from '@/features/SaleTypeSelect'
-import { SaleTypeSelectMobile } from '@/features/SaleTypeSelect'
 import { AdLayout } from '@/shared/layouts/AdLayout'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice'
@@ -84,15 +83,7 @@ export const Parameters = memo((props: ParametersProps) => {
                 left="Вид объявления"
                 right={
                     <BlockAdRight
-                        interaction={
-                            <>
-                                {isMobile ? (
-                                    <SaleTypeSelectMobile />
-                                ) : (
-                                    <SaleTypeSelect isOpen={isOpen} />
-                                )}
-                            </>
-                        }
+                        interaction={<SaleTypeSelect isOpen={isOpen} />}
                         errors={errors}
                         errorName="sale"
                     />

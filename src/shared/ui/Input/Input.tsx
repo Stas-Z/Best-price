@@ -24,7 +24,6 @@ interface InputProps extends HTMLInputProps {
     readonly?: boolean
     placeholder?: string
     required?: boolean
-    discription?: string
 }
 
 export const Input = memo((props: InputProps) => {
@@ -35,7 +34,6 @@ export const Input = memo((props: InputProps) => {
         readonly,
         placeholder,
         required,
-        discription,
         ...otherProps
     } = props
 

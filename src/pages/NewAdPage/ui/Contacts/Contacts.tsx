@@ -24,7 +24,6 @@ export const Contacts = memo((props: ContactsProps) => {
         formState: { errors },
         clearErrors,
         watch,
-        setValue,
     } = useFormContext<ContactsType>()
 
     const handleClearErrors = useCallback(() => {

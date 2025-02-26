@@ -7,13 +7,13 @@ import { Text } from '@/shared/ui/Text'
 
 import cls from './ImageUploader.module.scss'
 
-interface ImageUploaderProps {
+export interface ImageUploaderProps {
     className?: string
     images: File[]
     onChange: (images: File[]) => void
 }
 
-export const ImageUploader = memo((props: ImageUploaderProps) => {
+export const ImageUploader = (props: ImageUploaderProps) => {
     const { className, images, onChange } = props
 
     const handleRemoveImage = (imageLoaded: File) => {
@@ -35,6 +35,6 @@ export const ImageUploader = memo((props: ImageUploaderProps) => {
             <Text text={`${images.length} из 10`} size="s" variant="grey" />
         </VStack>
     )
-})
+}
 
-ImageUploader.displayName = 'ImageUploader'
+export default memo(ImageUploader)

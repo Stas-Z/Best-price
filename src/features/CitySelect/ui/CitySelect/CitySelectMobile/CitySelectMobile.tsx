@@ -8,13 +8,10 @@ import { Combobox } from '@/shared/ui/Combobox'
 import { VStack } from '@/shared/ui/Stack'
 
 import cls from './CitySelectMobile.module.scss'
-import { City } from '../../model/consts/cityConsts'
+import { City } from '../../../model/consts/cityConsts'
+import { CitySelectProps } from '../CitySelect'
 
-interface CitySelectMobileProps {
-    className?: string
-}
-
-export const CitySelectMobile = memo((props: CitySelectMobileProps) => {
+export const CitySelectMobile = memo((props: CitySelectProps) => {
     const { className } = props
 
     const small = useWindowWidth({ maxWidth: 696 })

@@ -25,7 +25,6 @@ interface TextareaProps extends HTMLTextarea {
     value?: string | number
     placeholder?: string
     required?: boolean
-    discription?: string
 }
 
 export const Textarea = memo((props: TextareaProps) => {
@@ -35,7 +34,6 @@ export const Textarea = memo((props: TextareaProps) => {
         rows = 8,
         placeholder,
         required,
-        discription,
         ...otherProps
     } = props
 

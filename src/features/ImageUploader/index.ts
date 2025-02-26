@@ -1,1 +1,1 @@
-export { ImageUploader } from './ui/ImageUploader/ImageUploader'
+export { ImageUploaderAsync as ImageUploader } from './ui/ImageUploader/ImageUploader.async'

@@ -18,6 +18,7 @@ export const buildCssLoader = (isDev: boolean) => ({
                 },
             },
         },
+        'postcss-loader',
         {
             loader: 'sass-loader',
             options: {

@@ -8,11 +8,11 @@ import { ListBox } from '@/shared/ui/ListBox'
 import cls from './CommunicationSelect.module.scss'
 import { Communication } from '../../model/consts/comunicationConsts'
 
-interface CommunicationSelectProps {
+export interface CommunicationSelectProps {
     className?: string
 }
 
-export const CommunicationSelect = memo((props: CommunicationSelectProps) => {
+const CommunicationSelect = (props: CommunicationSelectProps) => {
     const { className } = props
 
     const comunicationOptions = useMemo(
@@ -33,5 +33,5 @@ export const CommunicationSelect = memo((props: CommunicationSelectProps) => {
             />
         </div>
     )
-})
-CommunicationSelect.displayName = 'CommunicationSelect'
+}
+export default memo(CommunicationSelect)

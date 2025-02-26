@@ -6,13 +6,10 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { ListBox } from '@/shared/ui/ListBox'
 
 import cls from './SaleTypeSelectMobile.module.scss'
-import { saleType } from '../../model/consts/selectSaleType'
+import { saleType } from '../../../model/consts/selectSaleType'
+import { SaleTypeSelectProps } from '../SaleTypeSelect'
 
-interface SaleTypeSelectMobileProps {
-    className?: string
-}
-
-export const SaleTypeSelectMobile = memo((props: SaleTypeSelectMobileProps) => {
+export const SaleTypeSelectMobile = memo((props: SaleTypeSelectProps) => {
     const { className } = props
 
     const saleOptions = useMemo(() => {

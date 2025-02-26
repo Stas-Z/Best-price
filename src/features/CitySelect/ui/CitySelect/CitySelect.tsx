@@ -1,42 +1,25 @@
-import { memo, useMemo } from 'react'
+import { memo } from 'react'
 
-import { Controller } from 'react-hook-form'
+import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice'
 
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { ListBox } from '@/shared/ui/ListBox'
+import { CitySelectDesktop } from './CitySelectDesktop/CitySelectDesktop'
+import { CitySelectMobile } from './CitySelectMobile/CitySelectMobile'
 
-import cls from './CitySelect.module.scss'
-import { City } from '../../model/consts/cityConsts'
-
-interface CitySelectProps {
+export interface CitySelectProps {
     className?: string
 }
 
-export const CitySelect = memo((props: CitySelectProps) => {
-    const { className } = props
-
-    const cityOptions = useMemo(
-        () =>
-            Object.entries(City).map((val) => ({
-                value: val[0],
-                content: val[1],
-            })),
-        [],
-    )
+const CitySelect = (props: CitySelectProps) => {
+    const isMobile = useDevice()
 
     return (
-        <div className={classNames(cls.citySelect, {}, [className])}>
-            <Controller
-                name="city"
-                render={({ field }) => (
-                    <ListBox
-                        placeHolder="Выберите город"
-                        items={cityOptions}
-                        {...field}
-                    />
-                )}
-            />
-        </div>
+        <>
+            {isMobile ? (
+                <CitySelectMobile {...props} />
+            ) : (
+                <CitySelectDesktop {...props} />
+            )}
+        </>
     )
-})
-CitySelect.displayName = 'CitySelect'
+}
+export default memo(CitySelect)
